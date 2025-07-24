@@ -1,1 +1,33 @@
-<p>getandset works!</p>
+<h1 style="color: white; font-size: 24px; margin-bottom: 10px;">
+  Get and Set element from input fields
+</h1>
+
+<h2 style="color: white; font-size: 20px; margin-bottom: 10px;">
+  User Name is : {{ displayName }}
+</h2>
+
+<input type="text" (input)="getName($event)" value="{{name}}" placeholder="Enter User Name"
+  style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; margin-right: 10px;" />
+
+<button (click)="showName()"
+  style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; margin-right: 10px;">
+  Get value
+</button>
+<button (click)="setName()"
+  style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; margin-right: 10px;">
+  Set value
+</button>
+
+<hr style="margin: 40px;">
+
+<h1 style="color: white">Get and set value with template reference variable</h1>
+<h2 style="color: white">Email : {{email}}</h2>
+<input type="email" value="{{email}}"
+  style="padding: 8px; border-radius: 5px; border: 1px solid #ccc; margin-right: 10px;" placeholder="Enter Your Email"
+  #emailField>
+<button (click)="setEmail()"
+  style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; margin-right: 10px;">Set
+  Email</button>
+<button (click)="getEmail(emailField.value)"
+  style="padding: 8px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; margin-right: 10px;">get
+  Email</button>

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { GetandsetComponent } from '../getandset/getandset.component';
+import { GetAndSetComponent } from '../getandset/getandset.component';
 
 @Component({
   selector: 'app-signup',
-  imports: [GetandsetComponent],
+  imports: [GetAndSetComponent],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrls: ['./signup.component.css']
 })
 export class SignupComponent {
   title= "signup page";
