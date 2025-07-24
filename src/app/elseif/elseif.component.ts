@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ElseifComponent {
   title:string = "else if Condtion"
-   color = 'red';
+  color:number|string = 2;
+
+  handleColor(val:number){
+    this.color = val
+  }
 }

@@ -1,12 +1,18 @@
 <h1 style="color:white;font-size: 22px; padding-top: 22px">{{title}}</h1>
 
-@if (color === 'red') {
+<button style="margin:10px; width:80px; border: 1px solid black; padding:2px" (click)="handleColor(1)">red</button>
+<button style="margin:10px; width:80px; border: 1px solid black; padding:2px" (click)="handleColor(2)">green</button>
+<button style="margin:10px; width:80px; border: 1px solid black; padding:2px" (click)="handleColor(3)">blue</button>
+<button style="margin:10px; width:80px; border: 1px solid black; padding:2px" (click)="handleColor(4)">yellow</button>
+<button style="margin:10px; width:80px; border: 1px solid black; padding:2px" (click)="handleColor(5)">other</button>
+
+@if (color == 1) {
   <div style="width: 100px; height: 100px; background-color: red; margin: 10px;"></div>
-} @else if (color === 'green') {
+} @else if (color == 2) {
   <div style="width: 100px; height: 100px; background-color: green; margin: 10px;"></div>
-} @else if (color === 'blue') {
+} @else if (color == 3) {
   <div style="width: 100px; height: 100px; background-color: blue; margin: 10px;"></div>
-} @else if (color === 'yellow') {
+} @else if (color == 4) {
   <div style="width: 100px; height: 100px; background-color: yellow; margin: 10px;"></div>
 } @else {
   <div style="width: 100px; height: 100px; background-color: gray; margin: 10px;">No Color</div>
