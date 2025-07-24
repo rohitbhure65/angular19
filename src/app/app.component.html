@@ -1,4 +1,16 @@
-<h1>Hello, angular19</h1>
-<app-login></app-login>
-<app-signup></app-signup> 
-<p>Welcome to the Angular application!</p>
+<app-signup></app-signup>
+
+<div style="padding:20px">
+    
+    <h2 style="text-align: center; ">Welcome to the counter app</h2>
+    
+    <div style="text-align: center;">
+        <h2 class="counter">{{counter}}</h2>
+        <div>
+            <button (click)="handleCounter('decrement')" class="btn">Decrement</button>
+            <button (click)="handleCounter('reset')" class="btn">Reset</button>
+            <button (click)="handleCounter('increment')" class="btn">Increment</button>
+        </div>
+        
+    </div>
+</div> 

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { GetandsetComponent } from '../getandset/getandset.component';
 
 @Component({
   selector: 'app-signup',
-  imports: [],
+  imports: [GetandsetComponent],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
