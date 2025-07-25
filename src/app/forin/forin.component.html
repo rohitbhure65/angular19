@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+
+@for(item of users; track item){
+    <p style="color:white">{{item}}</p>
+}
+
+<hr>
+
+@for(student of students; track student.name){
+    <p>
+        <span style="color:white">{{student.name}}</span>
+        <span style="color:white">{{student.age}}</span>
+        <span style="color:white">{{student.email}}</span>
+    </p>
+}
