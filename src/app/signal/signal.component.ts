@@ -19,7 +19,6 @@ export class SignalComponent {
 
   updateValue(){
     this.count.set(this.count()+1)
-    // this.data.update((val)=>val+1) // return error if we have 2 data types other 
-                                      // it will work perfectly
+    // this.data.update((val)=>val+1) // return error if we have 2 data types other it will work perfectly
   }
 }
