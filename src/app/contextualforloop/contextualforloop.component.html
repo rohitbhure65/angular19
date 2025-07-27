@@ -1,0 +1,16 @@
+<h1>{{ title }}</h1>
+<div class="container" [style.backgroundColor]="salil_bg_color">
+
+    @for (user of users; track user; let i = $index) {
+        @if ($first || $last) {
+            <h3 style="background-color: green; margin: 3px; color: white">
+                This is our {{ i + 1 }} and username is {{ user }}
+            </h3>
+        } @else{
+            <h3 style="background-color: red; margin: 3px; color: white">
+                This is our {{ i + 1 }} and username is {{ user }}
+            </h3>
+        }
+    }
+
+</div>
