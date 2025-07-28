@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder,FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -23,17 +23,17 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 export class BusinessDetailsComponent {
   businessForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.businessForm = this.fb.group({
-      technologyOrProductStartup: ['', [Validators.required, Validators.maxLength(500)]],
-      problemSolving: ['', [Validators.required, Validators.maxLength(500)]],
-      valueProposition: ['', [Validators.required, Validators.maxLength(500)]],
-      uniqueSellingPoint: ['', [Validators.required, Validators.maxLength(500)]],
-      targetCustomerSegment: ['', [Validators.required, Validators.maxLength(500)]],
-      marketSizeOpportunity: ['', Validators.maxLength(500)],
-      scaleUpAim: ['', Validators.maxLength(500)],
-      revenueModel: ['', [Validators.required, Validators.maxLength(500)]],
-      website: ['', [Validators.required, Validators.maxLength(500)]],
+  constructor() {
+    this.businessForm = new FormGroup({
+      technologyOrProductStartup: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+      problemSolving: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+      valueProposition: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+      uniqueSellingPoint: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+      targetCustomerSegment: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+      marketSizeOpportunity: new FormControl('', [Validators.maxLength(500)]),
+      scaleUpAim: new FormControl('', [Validators.maxLength(500)]),
+      revenueModel: new FormControl('', [Validators.required, Validators.maxLength(500)]),
+      website: new FormControl('', [Validators.required, Validators.maxLength(500)]),
     });
   }
 

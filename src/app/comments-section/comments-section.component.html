@@ -5,10 +5,10 @@
 
   <form [formGroup]="commentSectionForm" (ngSubmit)="onSubmit()" class="space-y-6">
 
-    <mat-form-field appearance="fill" class="w-full">
-      <mat-label>
-        Comment
-      </mat-label>
+    <mat-label>
+      Comment*
+    </mat-label>
+    <mat-form-field appearance="outline" class="w-full">
       <textarea matInput formControlName="comment" rows="3" maxlength="500"></textarea>
       <mat-error *ngIf="commentSectionForm.get('comment')?.hasError('required')">
         This field is required.

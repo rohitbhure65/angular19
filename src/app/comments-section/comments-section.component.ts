@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder,FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
@@ -24,9 +24,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 export class CommentsSectionComponent {
   commentSectionForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
-    this.commentSectionForm = this.fb.group({
-      comment: ['', [Validators.required, Validators.maxLength(500)]],
+  constructor() {
+    this.commentSectionForm = new FormGroup({
+      comment: new FormControl('', [Validators.required,Validators.maxLength(500)])
     });
   }
 
