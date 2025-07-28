@@ -1,0 +1,7 @@
+<!-- method 1 -->
+<!-- <input [(ngModel)]="name" type="text" placeholder="Enter our name">
+<h1>{{name}}</h1> -->
+
+<!-- another method -->
+ <input type="text" (input)="changeName($event)" placeholder="Enter Your name">
+ <h1 class="">{{name}}</h1>

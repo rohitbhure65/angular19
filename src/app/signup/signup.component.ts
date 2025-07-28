@@ -7,12 +7,15 @@ import { SignalComponent } from '../signal/signal.component';
 import { ComputedsignalsComponent } from '../computedsignals/computedsignals.component';
 import { EffectComponent } from '../effect/effect.component';
 import { ContextualforloopComponent } from '../contextualforloop/contextualforloop.component';
+import { TwowaybindinComponent } from '../twowaybindin/twowaybindin.component';
 import {
   FormControl,
   Validators,
   FormGroup,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { DynamicstylingComponent } from '../dynamicstyling/dynamicstyling.component';
+import { BusinessDetailsComponent } from '../business-details/business-details.component';
 
 @Component({
   selector: 'app-signup',
@@ -26,6 +29,9 @@ import {
     ComputedsignalsComponent,
     EffectComponent,
     ContextualforloopComponent,
+    TwowaybindinComponent,
+    DynamicstylingComponent,
+    BusinessDetailsComponent
   ],
   templateUrl: './signup.component.html', 
   styleUrls: ['./signup.component.css'],
