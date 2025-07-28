@@ -1,88 +1,92 @@
-  <h2 class="text-2xl font-bold mb-6">Startup Business Details</h2>
-  
-  <form [formGroup]="businessForm" (ngSubmit)="onSubmit()" class="space-y-6">
+<h2 class="bg-blue-600 text-white p-4 mb-6">Startup Business Details</h2>
+<form [formGroup]="businessForm" (ngSubmit)="onSubmit()" class="space-y-6">
 
-  <div>
-    <label for="technologyOrProductStartup" class="block font-medium text-gray-700 mb-2">
-      1. Is it a Technology/Product Startup or both?*
-    </label>
-    <textarea id="technologyOrProductStartup" formControlName="technologyOrProductStartup" rows="3"
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <div *ngIf="businessForm.get('technologyOrProductStartup')?.touched && businessForm.get('technologyOrProductStartup')?.invalid"
-      class="text-red-600 mt-1 text-sm">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>1. Is it a Technology/Product Startup or both? Startups should be using technology in its core product or service or business model or distribution model or methodology to solve the problem being targeted. Product Startup means start-ups having tangible product. Both means start-ups with technology at core along with tangible product.*</mat-label>
+    <textarea matInput formControlName="technologyOrProductStartup" rows="3" maxlength="3000"></textarea>
+    <mat-error *ngIf="businessForm.get('technologyOrProductStartup')?.hasError('required')">
       This field is required.
-    </div>
-  </div>
+    </mat-error>
+    <mat-error *ngIf="businessForm.get('technologyOrProductStartup')?.hasError('wordCountExceeded')">
+      Maximum 500 words allowed.
+    </mat-error>
+  </mat-form-field>
 
-  <div>
-    <label for="problemSolving" class="block font-medium text-gray-700 mb-2">
-      2. What is the problem you are solving?*
-    </label>
-    <textarea id="problemSolving" formControlName="problemSolving" rows="3"
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <div *ngIf="businessForm.get('problemSolving')?.touched && businessForm.get('problemSolving')?.invalid"
-      class="text-red-600 mt-1 text-sm">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>2. What is the problem you are solving?</mat-label>
+    <textarea matInput formControlName="problemSolving" rows="3" maxlength="3000"></textarea>
+    <mat-error *ngIf="businessForm.get('problemSolving')?.hasError('required')">
       This field is required.
-    </div>
-  </div>
+    </mat-error>
+    <mat-error *ngIf="businessForm.get('problemSolving')?.hasError('wordCountExceeded')">
+      Maximum 500 words allowed.
+    </mat-error>
+  </mat-form-field>
 
-  <div>
-    <label for="valueProposition" class="block font-medium text-gray-700 mb-2">
-      3. What is your value proposition for this problem?*
-    </label>
-    <textarea id="valueProposition" formControlName="valueProposition" rows="3"
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <div *ngIf="businessForm.get('valueProposition')?.touched && businessForm.get('valueProposition')?.invalid"
-      class="text-red-600 mt-1 text-sm">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>3. What is your value proposition for this problem?</mat-label>
+    <textarea matInput formControlName="valueProposition" rows="3" maxlength="3000"></textarea>
+    <mat-error *ngIf="businessForm.get('valueProposition')?.hasError('required')">
       This field is required.
-    </div>
-  </div>
+    </mat-error>
+    <mat-error *ngIf="businessForm.get('valueProposition')?.hasError('wordCountExceeded')">
+      Maximum 500 words allowed.
+    </mat-error>
+  </mat-form-field>
 
-  <div>
-    <label for="uniqueSellingPoint" class="block font-medium text-gray-700 mb-2">
-      4. What is your unique selling point?*
-    </label>
-    <textarea id="uniqueSellingPoint" formControlName="uniqueSellingPoint" rows="3"
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <div *ngIf="businessForm.get('uniqueSellingPoint')?.touched && businessForm.get('uniqueSellingPoint')?.invalid"
-      class="text-red-600 mt-1 text-sm">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>4. What is your unique selling point?</mat-label>
+    <textarea matInput formControlName="uniqueSellingPoint" rows="3" maxlength="3000"></textarea>
+    <mat-error *ngIf="businessForm.get('uniqueSellingPoint')?.hasError('required')">
       This field is required.
-    </div>
-  </div>
+    </mat-error>
+    <mat-error *ngIf="businessForm.get('uniqueSellingPoint')?.hasError('wordCountExceeded')">
+      Maximum 500 words allowed.
+    </mat-error>
+  </mat-form-field>
 
-  <div>
-    <label for="targetCustomerSegment" class="block font-medium text-gray-700 mb-2">
-      5. What is your target customer segment?*
-    </label>
-    <textarea id="targetCustomerSegment" formControlName="targetCustomerSegment" rows="3"
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-    <div *ngIf="businessForm.get('targetCustomerSegment')?.touched && businessForm.get('targetCustomerSegment')?.invalid"
-      class="text-red-600 mt-1 text-sm">
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>5. What is your target customer segment?</mat-label>
+    <textarea matInput formControlName="targetCustomerSegment" rows="3" maxlength="3000"></textarea>
+    <mat-error *ngIf="businessForm.get('targetCustomerSegment')?.hasError('required')">
       This field is required.
-    </div>
-  </div>
+    </mat-error>
+    <mat-error *ngIf="businessForm.get('targetCustomerSegment')?.hasError('wordCountExceeded')">
+      Maximum 500 words allowed.
+    </mat-error>
+  </mat-form-field>
 
-  <div>
-    <label for="marketSizeOpportunity" class="block font-medium text-gray-700 mb-2">
-      6. What is the market size of the opportunity?
-    </label>
-    <textarea id="marketSizeOpportunity" formControlName="marketSizeOpportunity" rows="3"
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-  </div>
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>6. What is the market size of the opportunity?</mat-label>
+    <textarea matInput formControlName="marketSizeOpportunity" rows="3" maxlength="3000"></textarea>
+    <mat-error *ngIf="businessForm.get('marketSizeOpportunity')?.hasError('wordCountExceeded')">
+      Maximum 500 words allowed.
+    </mat-error>
+  </mat-form-field>
 
-  <div>
-    <label for="scaleUpAim" class="block font-medium text-gray-700 mb-2">
-      7. How do you aim to scale-up?
-    </label>
-    <textarea id="scaleUpAim" formControlName="scaleUpAim" rows="3"
-      class="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
-  </div>
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>7. How do you aim to scale-up?</mat-label>
+    <textarea matInput formControlName="scaleUpAim" rows="3" maxlength="3000"></textarea>
+    <mat-error *ngIf="businessForm.get('scaleUpAim')?.hasError('wordCountExceeded')">
+      Maximum 500 words allowed.
+    </mat-error>
+  </mat-form-field>
 
-  <div class="pt-4">
-    <button type="submit"
-      class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200">
-      Submit
-    </button>
-  </div>
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>8. Revenue Model</mat-label>
+    <input matInput formControlName="revenueModel" />
+    <mat-error *ngIf="businessForm.get('revenueModel')?.hasError('required')">
+      This field is required.
+    </mat-error>
+  </mat-form-field>
 
+  <mat-form-field appearance="fill" class="w-full">
+    <mat-label>9. Website</mat-label>
+    <input matInput formControlName="website" />
+    <mat-error *ngIf="businessForm.get('website')?.hasError('required')">
+      This field is required.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="businessForm.invalid">Submit</button>
 </form>

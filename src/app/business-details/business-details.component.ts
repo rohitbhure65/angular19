@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 @Component({
   selector: 'app-business-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,MatButtonModule,MatFormFieldModule,MatInputModule],
+  imports: [CommonModule, ReactiveFormsModule,MatButtonModule,MatSelectModule,MatFormFieldModule,MatInputModule],
   templateUrl: './business-details.component.html',
   styleUrls: ['./business-details.component.css']
 })
@@ -16,24 +17,16 @@ export class BusinessDetailsComponent {
 
   constructor(private fb: FormBuilder) {
     this.businessForm = this.fb.group({
-      technologyOrProductStartup: ['', [Validators.required, this.wordCountValidator(500)]],
-      problemSolving: ['', [Validators.required, this.wordCountValidator(500)]],
-      valueProposition: ['', [Validators.required, this.wordCountValidator(500)]],
-      uniqueSellingPoint: ['', [Validators.required, this.wordCountValidator(500)]],
-      targetCustomerSegment: ['', [Validators.required, this.wordCountValidator(500)]],
-      marketSizeOpportunity: ['', this.wordCountValidator(500)],
-      scaleUpAim: ['', this.wordCountValidator(500)],
+      technologyOrProductStartup: ['', [Validators.required]],
+      problemSolving: ['', [Validators.required]],
+      valueProposition: ['', [Validators.required]],
+      uniqueSellingPoint: ['', [Validators.required]],
+      targetCustomerSegment: ['', [Validators.required]],
+      marketSizeOpportunity: [''],
+      scaleUpAim: [''],
       revenueModel: ['', Validators.required],
       website: ['', Validators.required],
     });
-  }
-
-  wordCountValidator(maxWords: number) {
-    return (control: AbstractControl): ValidationErrors | null => {
-      if (!control.value) return null;
-      const wordCount = control.value.trim().split(/\s+/).length;
-      return wordCount > maxWords ? { wordCountExceeded: { maxWords, actualWords: wordCount } } : null;
-    };
   }
 
   onSubmit() {
