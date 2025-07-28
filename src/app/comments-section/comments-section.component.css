@@ -1,0 +1,46 @@
+/* Padding and margin for business details page */
+:host {
+  display: block;
+  padding: 2rem;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Style for the form container */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Style for the header */
+h2 {
+  background-color: #2563eb; /* Tailwind blue-600 */
+  color: white;
+  padding: 1rem;
+  border-radius: 0.375rem; /* rounded */
+  margin-bottom: 1.5rem;
+}
+
+/* Style for mat-form-field to take full width */
+mat-form-field {
+  width: 100%;
+}
+
+/* Style for the submit button */
+button[type="submit"] {
+  align-self: flex-start;
+  padding: 0.5rem 1.5rem;
+}
+
+/* Additional spacing for error messages */
+mat-error {
+  margin-top: 0.25rem;
+}
+
+/* Add padding and margin for comment section if needed */
+.comment-section {
+  padding: 2rem;
+  max-width: 900px;
+  box-sizing: border-box;
+}

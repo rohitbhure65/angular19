@@ -7,11 +7,7 @@
 
     <mat-form-field appearance="fill" class="w-full">
       <mat-label>
-        1. Is it a Technology/Product Startup or both? Startups should be using technology in its core product or
-        service
-        or business model or distribution model or methodology to solve the problem being targeted. Product Startup
-        means
-        start-ups having tangible product. Both means start-ups with technology at core along with tangible product.
+        1. Is it a Technology/Product Startup or both? Startups should be using technology in its core product or service or business model or distribution model or methodology to solve the problem being targeted. Product Startup means start-ups having tangible product. Both means start-ups with technology at core along with tangible product.
       </mat-label>
       <textarea matInput formControlName="technologyOrProductStartup" rows="3" maxlength="500"></textarea>
       <mat-error *ngIf="businessForm.get('technologyOrProductStartup')?.hasError('required')">
@@ -43,7 +39,6 @@
         Maximum 500 words allowed.
       </mat-error>
     </mat-form-field>
-
     <mat-form-field appearance="fill" class="w-full">
       <mat-label>4. What is your unique selling point?</mat-label>
       <textarea matInput formControlName="uniqueSellingPoint" rows="3" maxlength="500"></textarea>
