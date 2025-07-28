@@ -1,92 +1,107 @@
-<h2 class="bg-blue-600 text-white p-4 mb-6">Startup Business Details</h2>
-<form [formGroup]="businessForm" (ngSubmit)="onSubmit()" class="space-y-6">
+<div class="m-32 px-6">
+  <h2 class="bg-blue-600 text-white text-lg font-semibold p-4 mb-6 rounded">
+    Startup Business Details
+  </h2>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>1. Is it a Technology/Product Startup or both? Startups should be using technology in its core product or service or business model or distribution model or methodology to solve the problem being targeted. Product Startup means start-ups having tangible product. Both means start-ups with technology at core along with tangible product.*</mat-label>
-    <textarea matInput formControlName="technologyOrProductStartup" rows="3" maxlength="3000"></textarea>
-    <mat-error *ngIf="businessForm.get('technologyOrProductStartup')?.hasError('required')">
-      This field is required.
-    </mat-error>
-    <mat-error *ngIf="businessForm.get('technologyOrProductStartup')?.hasError('wordCountExceeded')">
-      Maximum 500 words allowed.
-    </mat-error>
-  </mat-form-field>
+  <form [formGroup]="businessForm" (ngSubmit)="onSubmit()" class="space-y-6">
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>2. What is the problem you are solving?</mat-label>
-    <textarea matInput formControlName="problemSolving" rows="3" maxlength="3000"></textarea>
-    <mat-error *ngIf="businessForm.get('problemSolving')?.hasError('required')">
-      This field is required.
-    </mat-error>
-    <mat-error *ngIf="businessForm.get('problemSolving')?.hasError('wordCountExceeded')">
-      Maximum 500 words allowed.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>
+        1. Is it a Technology/Product Startup or both? Startups should be using technology in its core product or
+        service
+        or business model or distribution model or methodology to solve the problem being targeted. Product Startup
+        means
+        start-ups having tangible product. Both means start-ups with technology at core along with tangible product.
+      </mat-label>
+      <textarea matInput formControlName="technologyOrProductStartup" rows="3" maxlength="500"></textarea>
+      <mat-error *ngIf="businessForm.get('technologyOrProductStartup')?.hasError('required')">
+        This field is required.
+      </mat-error>
+      <mat-error *ngIf="businessForm.get('technologyOrProductStartup')?.hasError('wordCountExceeded')">
+        Maximum 500 words allowed.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>3. What is your value proposition for this problem?</mat-label>
-    <textarea matInput formControlName="valueProposition" rows="3" maxlength="3000"></textarea>
-    <mat-error *ngIf="businessForm.get('valueProposition')?.hasError('required')">
-      This field is required.
-    </mat-error>
-    <mat-error *ngIf="businessForm.get('valueProposition')?.hasError('wordCountExceeded')">
-      Maximum 500 words allowed.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>2. What is the problem you are solving?</mat-label>
+      <textarea matInput formControlName="problemSolving" rows="3" maxlength="500"></textarea>
+      <mat-error *ngIf="businessForm.get('problemSolving')?.hasError('required')">
+        This field is required.
+      </mat-error>
+      <mat-error *ngIf="businessForm.get('problemSolving')?.hasError('wordCountExceeded')">
+        Maximum 500 words allowed.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>4. What is your unique selling point?</mat-label>
-    <textarea matInput formControlName="uniqueSellingPoint" rows="3" maxlength="3000"></textarea>
-    <mat-error *ngIf="businessForm.get('uniqueSellingPoint')?.hasError('required')">
-      This field is required.
-    </mat-error>
-    <mat-error *ngIf="businessForm.get('uniqueSellingPoint')?.hasError('wordCountExceeded')">
-      Maximum 500 words allowed.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>3. What is your value proposition for this problem?</mat-label>
+      <textarea matInput formControlName="valueProposition" rows="3" maxlength="500"></textarea>
+      <mat-error *ngIf="businessForm.get('valueProposition')?.hasError('required')">
+        This field is required.
+      </mat-error>
+      <mat-error *ngIf="businessForm.get('valueProposition')?.hasError('wordCountExceeded')">
+        Maximum 500 words allowed.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>5. What is your target customer segment?</mat-label>
-    <textarea matInput formControlName="targetCustomerSegment" rows="3" maxlength="3000"></textarea>
-    <mat-error *ngIf="businessForm.get('targetCustomerSegment')?.hasError('required')">
-      This field is required.
-    </mat-error>
-    <mat-error *ngIf="businessForm.get('targetCustomerSegment')?.hasError('wordCountExceeded')">
-      Maximum 500 words allowed.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>4. What is your unique selling point?</mat-label>
+      <textarea matInput formControlName="uniqueSellingPoint" rows="3" maxlength="500"></textarea>
+      <mat-error *ngIf="businessForm.get('uniqueSellingPoint')?.hasError('required')">
+        This field is required.
+      </mat-error>
+      <mat-error *ngIf="businessForm.get('uniqueSellingPoint')?.hasError('wordCountExceeded')">
+        Maximum 500 words allowed.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>6. What is the market size of the opportunity?</mat-label>
-    <textarea matInput formControlName="marketSizeOpportunity" rows="3" maxlength="3000"></textarea>
-    <mat-error *ngIf="businessForm.get('marketSizeOpportunity')?.hasError('wordCountExceeded')">
-      Maximum 500 words allowed.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>5. What is your target customer segment?</mat-label>
+      <textarea matInput formControlName="targetCustomerSegment" rows="3" maxlength="500"></textarea>
+      <mat-error *ngIf="businessForm.get('targetCustomerSegment')?.hasError('required')">
+        This field is required.
+      </mat-error>
+      <mat-error *ngIf="businessForm.get('targetCustomerSegment')?.hasError('wordCountExceeded')">
+        Maximum 500 words allowed.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>7. How do you aim to scale-up?</mat-label>
-    <textarea matInput formControlName="scaleUpAim" rows="3" maxlength="3000"></textarea>
-    <mat-error *ngIf="businessForm.get('scaleUpAim')?.hasError('wordCountExceeded')">
-      Maximum 500 words allowed.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>6. What is the market size of the opportunity?</mat-label>
+      <textarea matInput formControlName="marketSizeOpportunity" rows="3" maxlength="500"></textarea>
+      <mat-error *ngIf="businessForm.get('marketSizeOpportunity')?.hasError('wordCountExceeded')">
+        Maximum 500 words allowed.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>8. Revenue Model</mat-label>
-    <input matInput formControlName="revenueModel" />
-    <mat-error *ngIf="businessForm.get('revenueModel')?.hasError('required')">
-      This field is required.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>7. How do you aim to scale-up?</mat-label>
+      <textarea matInput formControlName="scaleUpAim" rows="3" maxlength="500"></textarea>
+      <mat-error *ngIf="businessForm.get('scaleUpAim')?.hasError('wordCountExceeded')">
+        Maximum 500 words allowed.
+      </mat-error>
+    </mat-form-field>
 
-  <mat-form-field appearance="fill" class="w-full">
-    <mat-label>9. Website</mat-label>
-    <input matInput formControlName="website" />
-    <mat-error *ngIf="businessForm.get('website')?.hasError('required')">
-      This field is required.
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>8. Revenue Model</mat-label>
+      <input matInput formControlName="revenueModel" />
+      <mat-error *ngIf="businessForm.get('revenueModel')?.hasError('required')">
+        This field is required.
+      </mat-error>
+    </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit" [disabled]="businessForm.invalid">Submit</button>
-</form>
+    <mat-form-field appearance="fill" class="w-full">
+      <mat-label>9. Website</mat-label>
+      <input matInput formControlName="website" />
+      <mat-error *ngIf="businessForm.get('website')?.hasError('required')">
+        This field is required.
+      </mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" class="py-2 mt-4" [disabled]="businessForm.invalid">
+      Submit
+    </button>
+
+  </form>
+
+</div>

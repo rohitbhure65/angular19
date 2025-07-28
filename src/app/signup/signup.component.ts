@@ -16,6 +16,7 @@ import {
 } from '@angular/forms';
 import { DynamicstylingComponent } from '../dynamicstyling/dynamicstyling.component';
 import { BusinessDetailsComponent } from '../business-details/business-details.component';
+import { CommentsSectionComponent } from '../comments-section/comments-section.component';
 
 @Component({
   selector: 'app-signup',
@@ -31,7 +32,8 @@ import { BusinessDetailsComponent } from '../business-details/business-details.c
     ContextualforloopComponent,
     TwowaybindinComponent,
     DynamicstylingComponent,
-    BusinessDetailsComponent
+    BusinessDetailsComponent,
+    CommentsSectionComponent
   ],
   templateUrl: './signup.component.html', 
   styleUrls: ['./signup.component.css'],
