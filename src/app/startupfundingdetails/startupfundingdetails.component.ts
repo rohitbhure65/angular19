@@ -25,7 +25,8 @@ import { MatTableModule } from '@angular/material/table';
   styleUrls: ['./startupfundingdetails.component.css']
 })
 export class StartupFundingDetailsComponent {
-  isFundingDetailsEnabled = false;
+  isFundingDetailsEnabled:boolean = false;
+  form_edit:boolean = true;
 
   displayedColumns: string[] = [
     'sn',
@@ -107,6 +108,7 @@ export class StartupFundingDetailsComponent {
 
   // Placeholder for edit logic
   editRow(index: number): void {
+    this.form_edit = false
     console.log('Edit row', index);
     // Implement inline editing toggle logic here if needed
   }
