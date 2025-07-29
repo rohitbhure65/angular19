@@ -22,7 +22,7 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule
   ],
   templateUrl: './startupfundingdetails.component.html',
-  styleUrls: ['./startupfundingdetails.component.css'], // ✅ Fixed key
+  styleUrls: ['./startupfundingdetails.component.css'],
 })
 export class StartupFundingDetailsComponent {
   isFundingDetailsEnabled = false;
@@ -45,8 +45,8 @@ export class StartupFundingDetailsComponent {
     }
   ];
 
-  incubatorTypes: string[] = ['Private', 'Government', 'Academic'];
-  fundingFormats: string[] = ['Equity', 'Grant', 'Loan', 'Convertible Note'];
+  incubatorTypes: string[] = ['Corporate', 'Government', 'Private'];
+  fundingFormats: string[] = ['Grant','Equity', 'Debenture', 'Convertible Debenture','Debt'];
 
   addRow(): void {
     this.fundingRows.push({
@@ -57,6 +57,7 @@ export class StartupFundingDetailsComponent {
       sanctionAmount: '',
       disbursementAmount: ''
     });
+    this.fundingRows = [...this.fundingRows];
   }
 
   removeRow(index: number): void {
@@ -82,7 +83,6 @@ export class StartupFundingDetailsComponent {
   }
 
   back(): void {
-
     console.log('Back button clicked');
   }
 
