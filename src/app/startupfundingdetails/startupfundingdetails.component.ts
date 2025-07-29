@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-
+import { NgIf } from '@angular/common';
 @Component({
   selector: 'app-startupfundingdetails',
   standalone: true,
   imports: [
     CommonModule,
+    NgIf,
     FormsModule,
     MatInputModule,
     MatCheckboxModule,
@@ -26,6 +27,16 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class StartupFundingDetailsComponent {
   isFundingDetailsEnabled: boolean = false;
+
+  startupFundingDetailsForm = new FormGroup({
+    schemeName: new FormControl('',[Validators.required]),
+    institutionName: new FormControl('',[Validators.required]),
+    institutionType: new FormControl('',[Validators.required]),
+    formatOfFunding: new FormControl('', [Validators.required]),
+    sanctionAmount: new FormControl('',[Validators.required]),
+    disbursementAmount: new FormControl('',[Validators.required]),
+  })
+  
 
   displayedColumns: string[] = [
     'sn',
@@ -43,8 +54,8 @@ export class StartupFundingDetailsComponent {
     institutionName: string;
     institutionType: string;
     formatOfFunding: string;
-    sanctionAmount: string;
-    disbursementAmount: string;
+    sanctionAmount: number;
+    disbursementAmount: number;
     edit:boolean;
   }[] = [
     {
@@ -52,8 +63,8 @@ export class StartupFundingDetailsComponent {
       institutionName: '',
       institutionType: '',
       formatOfFunding: '',
-      sanctionAmount: '',
-      disbursementAmount: '',
+      sanctionAmount: 0,
+      disbursementAmount: 0,
       edit:true
     },
   ];
@@ -73,18 +84,11 @@ export class StartupFundingDetailsComponent {
       institutionName: '',
       institutionType: '',
       formatOfFunding: '',
-      sanctionAmount: '',
-      disbursementAmount: '',
+      sanctionAmount: 0,
+      disbursementAmount: 0,
       edit:true
     });
-    this.fundingRows = [...this.fundingRows]; // Ensure change detection
-  }
-
-  removeRow(index: number): void {
-    if (this.fundingRows.length > 1) {
-      this.fundingRows.splice(index, 1);
-      this.fundingRows = [...this.fundingRows]; // Trigger UI update
-    }
+    this.fundingRows = [...this.fundingRows];
   }
 
   onSave(): void {
@@ -98,13 +102,7 @@ export class StartupFundingDetailsComponent {
         row.disbursementAmount
     );
 
-    if (!allFieldsFilled) {
-      alert('Please fill all required fields before saving.');
-      return;
-    }
-
     console.log('Saved Data:', this.fundingRows);
-    alert('Funding details saved successfully!');
   }
 
   back(): void {
