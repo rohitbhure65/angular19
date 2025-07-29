@@ -19,13 +19,24 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
   ],
   templateUrl: './startupfundingdetails.component.html',
-  styleUrls: ['./startupfundingdetails.component.css'],
+  styleUrls: ['./startupfundingdetails.component.css']
 })
 export class StartupFundingDetailsComponent {
   isFundingDetailsEnabled = false;
+
+  displayedColumns: string[] = [
+    'sn',
+    'schemeName',
+    'institutionName',
+    'institutionType',
+    'formatOfFunding',
+    'sanctionAmount',
+    'disbursementAmount',
+    'action'
+  ];
 
   fundingRows: {
     schemeName: string;
@@ -46,8 +57,9 @@ export class StartupFundingDetailsComponent {
   ];
 
   incubatorTypes: string[] = ['Corporate', 'Government', 'Private'];
-  fundingFormats: string[] = ['Grant','Equity', 'Debenture', 'Convertible Debenture','Debt'];
+  fundingFormats: string[] = ['Grant', 'Equity', 'Debenture', 'Convertible Debenture', 'Debt'];
 
+  // Add a new row
   addRow(): void {
     this.fundingRows.push({
       schemeName: '',
@@ -57,13 +69,18 @@ export class StartupFundingDetailsComponent {
       sanctionAmount: '',
       disbursementAmount: ''
     });
-    this.fundingRows = [...this.fundingRows];
+    this.fundingRows = [...this.fundingRows]; // Ensure change detection
   }
 
+  // Remove a specific row
   removeRow(index: number): void {
-    this.fundingRows.splice(index, 1);
+    if (this.fundingRows.length > 1) {
+      this.fundingRows.splice(index, 1);
+      this.fundingRows = [...this.fundingRows]; // Trigger UI update
+    }
   }
 
+  // Handle Save & Next
   onSave(): void {
     const allFieldsFilled = this.fundingRows.every(row =>
       row.schemeName &&
@@ -80,13 +97,17 @@ export class StartupFundingDetailsComponent {
     }
 
     console.log('Saved Data:', this.fundingRows);
+    alert('Funding details saved successfully!');
   }
 
+  // Handle Back
   back(): void {
     console.log('Back button clicked');
   }
 
+  // Placeholder for edit logic
   editRow(index: number): void {
     console.log('Edit row', index);
+    // Implement inline editing toggle logic here if needed
   }
 }
