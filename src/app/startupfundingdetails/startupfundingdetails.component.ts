@@ -112,10 +112,16 @@ export class StartupFundingDetailsComponent {
   }
 
   editRow(index: number) {
-    const current=this.fundingRows;
-    let updated=[...current]
-    updated[index]={...updated[index],edit:false}
-    this.fundingRows=updated;
-    
+    const current = this.fundingRows;
+    let updated = [...current];
+    updated[index] = { ...updated[index], edit: false };
+    this.fundingRows = updated;
+  }
+
+  saveRow(index: number) {
+    const current = this.fundingRows;
+    let updated = [...current];
+    updated[index] = { ...updated[index], edit: true };
+    this.fundingRows = updated;
   }
 }
