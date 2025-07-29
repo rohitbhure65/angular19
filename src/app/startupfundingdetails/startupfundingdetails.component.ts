@@ -6,9 +6,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
-   selector: 'app-startupfundingdetails',
+  selector: 'app-startupfundingdetails',
   standalone: true,
   imports: [
     CommonModule,
@@ -17,15 +18,23 @@ import { MatButtonModule } from '@angular/material/button';
     MatCheckboxModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   templateUrl: './startupfundingdetails.component.html',
-  styleUrl: './startupfundingdetails.component.css',
+  styleUrls: ['./startupfundingdetails.component.css'], // ✅ Fixed key
 })
-export class StartupfundingdetailsComponent {
+export class StartupFundingDetailsComponent {
   isFundingDetailsEnabled = false;
 
-  fundingRows = [
+  fundingRows: {
+    schemeName: string;
+    institutionName: string;
+    institutionType: string;
+    formatOfFunding: string;
+    sanctionAmount: string;
+    disbursementAmount: string;
+  }[] = [
     {
       schemeName: '',
       institutionName: '',
@@ -36,10 +45,10 @@ export class StartupfundingdetailsComponent {
     }
   ];
 
-  incubatorTypes = ['Private', 'Government', 'Academic'];
-  fundingFormats = ['Equity', 'Grant', 'Loan', 'Convertible Note'];
+  incubatorTypes: string[] = ['Private', 'Government', 'Academic'];
+  fundingFormats: string[] = ['Equity', 'Grant', 'Loan', 'Convertible Note'];
 
-  addRow() {
+  addRow(): void {
     this.fundingRows.push({
       schemeName: '',
       institutionName: '',
@@ -50,19 +59,21 @@ export class StartupfundingdetailsComponent {
     });
   }
 
-  removeRow(index: number) {
+  removeRow(index: number): void {
     this.fundingRows.splice(index, 1);
   }
 
-  onSave() {
-    if (this.fundingRows.some(row =>
-      !row.schemeName ||
-      !row.institutionName ||
-      !row.institutionType ||
-      !row.formatOfFunding ||
-      !row.sanctionAmount ||
-      !row.disbursementAmount
-    )) {
+  onSave(): void {
+    const allFieldsFilled = this.fundingRows.every(row =>
+      row.schemeName &&
+      row.institutionName &&
+      row.institutionType &&
+      row.formatOfFunding &&
+      row.sanctionAmount &&
+      row.disbursementAmount
+    );
+
+    if (!allFieldsFilled) {
       alert('Please fill all required fields before saving.');
       return;
     }
@@ -70,11 +81,12 @@ export class StartupfundingdetailsComponent {
     console.log('Saved Data:', this.fundingRows);
   }
 
-  back(){
+  back(): void {
 
+    console.log('Back button clicked');
   }
 
-  editRow(){
-    
+  editRow(index: number): void {
+    console.log('Edit row', index);
   }
 }

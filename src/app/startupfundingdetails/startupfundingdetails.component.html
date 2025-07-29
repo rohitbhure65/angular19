@@ -1,86 +1,85 @@
 <h3 class="bg-blue-600 text-white p-4 mb-4 rounded">Startup Funding Details</h3>
 
-<label>
+<label class="block mb-4">
   <mat-checkbox [(ngModel)]="isFundingDetailsEnabled">Funding Details</mat-checkbox>
 </label>
 
-<table mat-table [dataSource]="fundingRows" class="mat-elevation-z8 w-full mt-4">
+<table mat-table [dataSource]="fundingRows" class="mat-elevation-z8 w-full mt-4" multiTemplateDataRows>
 
-  <!-- SN Column -->
+
   <ng-container matColumnDef="sn">
     <th mat-header-cell *matHeaderCellDef> SN </th>
-    <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    <td mat-cell *matCellDef="let element; let i = index"> {{ i + 1 }} </td>
   </ng-container>
 
-  <!-- Scheme Name Column -->
   <ng-container matColumnDef="schemeName">
     <th mat-header-cell *matHeaderCellDef> Scheme Name* </th>
     <td mat-cell *matCellDef="let element; let i = index">
       <mat-form-field appearance="fill" class="w-full">
-        <input matInput [(ngModel)]="fundingRows[i].schemeName" placeholder="Scheme Name" required />
+        <input matInput [(ngModel)]="fundingRows[i].schemeName" name="schemeName{{i}}" placeholder="Scheme Name" required />
       </mat-form-field>
     </td>
   </ng-container>
 
-  <!-- Institution Name Column -->
   <ng-container matColumnDef="institutionName">
-    <th mat-header-cell *matHeaderCellDef> Incubator/Institution Name* </th>
+    <th mat-header-cell *matHeaderCellDef> Institution Name* </th>
     <td mat-cell *matCellDef="let element; let i = index">
       <mat-form-field appearance="fill" class="w-full">
-        <input matInput [(ngModel)]="fundingRows[i].institutionName" placeholder="Institution Name" required />
+        <input matInput [(ngModel)]="fundingRows[i].institutionName" name="institutionName{{i}}" placeholder="Institution Name" required />
       </mat-form-field>
     </td>
   </ng-container>
 
-  <!-- Institution Type Column -->
+
   <ng-container matColumnDef="institutionType">
-    <th mat-header-cell *matHeaderCellDef> Incubator /Institution Type* </th>
+    <th mat-header-cell *matHeaderCellDef> Institution Type* </th>
     <td mat-cell *matCellDef="let element; let i = index">
       <mat-form-field appearance="fill" class="w-full">
-        <mat-select [(ngModel)]="fundingRows[i].institutionType" placeholder="Select Incubator type" required>
+        <mat-select [(ngModel)]="fundingRows[i].institutionType" name="institutionType{{i}}" placeholder="Select Incubator type" required>
           <mat-option *ngFor="let type of incubatorTypes" [value]="type">{{ type }}</mat-option>
         </mat-select>
       </mat-form-field>
     </td>
   </ng-container>
 
-  <!-- Format of Funding Column -->
+
   <ng-container matColumnDef="formatOfFunding">
     <th mat-header-cell *matHeaderCellDef> Format of Funding* </th>
     <td mat-cell *matCellDef="let element; let i = index">
       <mat-form-field appearance="fill" class="w-full">
-        <mat-select [(ngModel)]="fundingRows[i].formatOfFunding" placeholder="Select" required>
+        <mat-select [(ngModel)]="fundingRows[i].formatOfFunding" name="formatOfFunding{{i}}" placeholder="Select" required>
           <mat-option *ngFor="let format of fundingFormats" [value]="format">{{ format }}</mat-option>
         </mat-select>
       </mat-form-field>
     </td>
   </ng-container>
 
-  <!-- Sanction Amount Column -->
+
   <ng-container matColumnDef="sanctionAmount">
     <th mat-header-cell *matHeaderCellDef> Sanction Amount* </th>
     <td mat-cell *matCellDef="let element; let i = index">
       <mat-form-field appearance="fill" class="w-full">
-        <input matInput type="number" [(ngModel)]="fundingRows[i].sanctionAmount" placeholder="Sanction Amount" required />
+        <input matInput type="number" [(ngModel)]="fundingRows[i].sanctionAmount" name="sanctionAmount{{i}}" placeholder="Sanction Amount" required />
       </mat-form-field>
     </td>
   </ng-container>
 
-  <!-- Disbursement Amount Column -->
+
   <ng-container matColumnDef="disbursementAmount">
     <th mat-header-cell *matHeaderCellDef> Disbursement Amount* </th>
     <td mat-cell *matCellDef="let element; let i = index">
       <mat-form-field appearance="fill" class="w-full">
-        <input matInput type="number" [(ngModel)]="fundingRows[i].disbursementAmount" placeholder="Disbursement Amount" required />
+        <input matInput type="number" [(ngModel)]="fundingRows[i].disbursementAmount" name="disbursementAmount{{i}}" placeholder="Disbursement Amount" required />
       </mat-form-field>
     </td>
   </ng-container>
 
-  <!-- Action Column -->
+
   <ng-container matColumnDef="action">
-    <th mat-header-cell *matHeaderCellDef> Action </th>
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Action </th>
     <td mat-cell *matCellDef="let element; let i = index" class="text-center">
       <button mat-button color="primary" (click)="editRow(i)">Edit</button>
+      <button mat-button color="warn" (click)="removeRow(i)" *ngIf="fundingRows.length > 1">Delete</button>
     </td>
   </ng-container>
 
@@ -89,7 +88,7 @@
 </table>
 
 <div class="flex justify-end mt-4">
-  <button mat-raised-button color="primary" (click)="addRow()">Add New Row</button>
+  <button mat-raised-button color="accent" (click)="addRow()">+ Add New Row</button>
 </div>
 
 <div class="flex justify-end gap-4 mt-6">

@@ -17,7 +17,8 @@ import {
 import { DynamicstylingComponent } from '../dynamicstyling/dynamicstyling.component';
 import { BusinessDetailsComponent } from '../business-details/business-details.component';
 import { CommentsSectionComponent } from '../comments-section/comments-section.component';
-import { StartupfundingdetailsComponent } from '../startupfundingdetails/startupfundingdetails.component';
+import { StartupFundingDetailsComponent } from '../startupfundingdetails/startupfundingdetails.component';
+
 
 @Component({
   selector: 'app-signup',
@@ -35,7 +36,7 @@ import { StartupfundingdetailsComponent } from '../startupfundingdetails/startup
     DynamicstylingComponent,
     BusinessDetailsComponent,
     CommentsSectionComponent,
-    StartupfundingdetailsComponent
+    StartupFundingDetailsComponent
   ],
   templateUrl: './signup.component.html', 
   styleUrls: ['./signup.component.css'],
