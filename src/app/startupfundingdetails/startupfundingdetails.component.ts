@@ -26,7 +26,6 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class StartupFundingDetailsComponent {
   isFundingDetailsEnabled: boolean = false;
-  // form_edit: boolean = true;
 
   displayedColumns: string[] = [
     'sn',
@@ -68,7 +67,6 @@ export class StartupFundingDetailsComponent {
     'Debt',
   ];
 
-  // Add a new row
   addRow(): void {
     this.fundingRows.push({
       schemeName: '',
@@ -82,7 +80,6 @@ export class StartupFundingDetailsComponent {
     this.fundingRows = [...this.fundingRows]; // Ensure change detection
   }
 
-  // Remove a specific row
   removeRow(index: number): void {
     if (this.fundingRows.length > 1) {
       this.fundingRows.splice(index, 1);
@@ -90,7 +87,6 @@ export class StartupFundingDetailsComponent {
     }
   }
 
-  // Handle Save & Next
   onSave(): void {
     const allFieldsFilled = this.fundingRows.every(
       (row) =>
@@ -111,18 +107,15 @@ export class StartupFundingDetailsComponent {
     alert('Funding details saved successfully!');
   }
 
-  // Handle Back
   back(): void {
     console.log('Back button clicked');
   }
 
-  // Placeholder for edit logic
   editRow(index: number) {
     const current=this.fundingRows;
     let updated=[...current]
     updated[index]={...updated[index],edit:false}
     this.fundingRows=updated;
     
-    // Implement inline editing toggle logic here if needed
   }
 }
