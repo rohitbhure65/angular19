@@ -22,11 +22,11 @@ import { MatTableModule } from '@angular/material/table';
     MatTableModule,
   ],
   templateUrl: './startupfundingdetails.component.html',
-  styleUrls: ['./startupfundingdetails.component.css']
+  styleUrls: ['./startupfundingdetails.component.css'],
 })
 export class StartupFundingDetailsComponent {
-  isFundingDetailsEnabled:boolean = false;
-  form_edit:boolean = true;
+  isFundingDetailsEnabled: boolean = false;
+  // form_edit: boolean = true;
 
   displayedColumns: string[] = [
     'sn',
@@ -36,7 +36,7 @@ export class StartupFundingDetailsComponent {
     'formatOfFunding',
     'sanctionAmount',
     'disbursementAmount',
-    'action'
+    'action',
   ];
 
   fundingRows: {
@@ -46,6 +46,7 @@ export class StartupFundingDetailsComponent {
     formatOfFunding: string;
     sanctionAmount: string;
     disbursementAmount: string;
+    edit:boolean;
   }[] = [
     {
       schemeName: '',
@@ -53,12 +54,19 @@ export class StartupFundingDetailsComponent {
       institutionType: '',
       formatOfFunding: '',
       sanctionAmount: '',
-      disbursementAmount: ''
-    }
+      disbursementAmount: '',
+      edit:true
+    },
   ];
 
   incubatorTypes: string[] = ['Corporate', 'Government', 'Private'];
-  fundingFormats: string[] = ['Grant', 'Equity', 'Debenture', 'Convertible Debenture', 'Debt'];
+  fundingFormats: string[] = [
+    'Grant',
+    'Equity',
+    'Debenture',
+    'Convertible Debenture',
+    'Debt',
+  ];
 
   // Add a new row
   addRow(): void {
@@ -68,7 +76,8 @@ export class StartupFundingDetailsComponent {
       institutionType: '',
       formatOfFunding: '',
       sanctionAmount: '',
-      disbursementAmount: ''
+      disbursementAmount: '',
+      edit:true
     });
     this.fundingRows = [...this.fundingRows]; // Ensure change detection
   }
@@ -83,13 +92,14 @@ export class StartupFundingDetailsComponent {
 
   // Handle Save & Next
   onSave(): void {
-    const allFieldsFilled = this.fundingRows.every(row =>
-      row.schemeName &&
-      row.institutionName &&
-      row.institutionType &&
-      row.formatOfFunding &&
-      row.sanctionAmount &&
-      row.disbursementAmount
+    const allFieldsFilled = this.fundingRows.every(
+      (row) =>
+        row.schemeName &&
+        row.institutionName &&
+        row.institutionType &&
+        row.formatOfFunding &&
+        row.sanctionAmount &&
+        row.disbursementAmount
     );
 
     if (!allFieldsFilled) {
@@ -107,9 +117,12 @@ export class StartupFundingDetailsComponent {
   }
 
   // Placeholder for edit logic
-  editRow(index: number): void {
-    this.form_edit = false
-    console.log('Edit row', index);
+  editRow(index: number) {
+    const current=this.fundingRows;
+    let updated=[...current]
+    updated[index]={...updated[index],edit:false}
+    this.fundingRows=updated;
+    
     // Implement inline editing toggle logic here if needed
   }
 }
