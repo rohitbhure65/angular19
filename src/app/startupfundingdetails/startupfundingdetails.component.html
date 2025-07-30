@@ -8,7 +8,7 @@
     Funding Details
   </label>
 
-  <div class="overflow-x-auto">
+  <div class="overflow-x-auto m-10">
     <table class="min-w-full table-auto border border-gray-300 rounded-md text-sm">
       <thead>
         <tr class="bg-gray-100 text-gray-700 font-semibold text-center">
@@ -28,8 +28,8 @@
           <td class="border px-4 py-2">{{ i + 1 }}</td>
 
           <td class="border px-4 py-2 min-w-[200px]">
-            <input type="text" [(ngModel)]="fundingRows[i].schemeName" name="schemeName{{i}}"
-              [disabled]="element.edit" required #schemeName="ngModel" placeholder="Scheme Name"
+            <input type="text" [(ngModel)]="fundingRows[i].schemeName" name="schemeName{{i}}" [disabled]="element.edit"
+              required #schemeName="ngModel" placeholder="Scheme Name"
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
             <div *ngIf="schemeName.invalid && schemeName.touched" class="text-red-600 text-xs mt-1">Required.</div>
           </td>
@@ -38,57 +38,63 @@
             <input type="text" [(ngModel)]="fundingRows[i].institutionName" name="institutionName{{i}}"
               [disabled]="element.edit" required #institutionName="ngModel" placeholder="Institution Name"
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <div *ngIf="institutionName.invalid && institutionName.touched" class="text-red-600 text-xs mt-1">Required.</div>
+            <div *ngIf="institutionName.invalid && institutionName.touched" class="text-red-600 text-xs mt-1">Required.
+            </div>
           </td>
 
           <td class="border px-4 py-2 min-w-[180px]">
-            <select [(ngModel)]="fundingRows[i].institutionType" name="institutionType{{i}}"
-              [disabled]="element.edit" required #institutionType="ngModel"
+            <select [(ngModel)]="fundingRows[i].institutionType" name="institutionType{{i}}" [disabled]="element.edit"
+              required #institutionType="ngModel"
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="" disabled>Select Type</option>
               <option *ngFor="let type of incubatorTypes" [value]="type">{{ type }}</option>
             </select>
-            <div *ngIf="institutionType.invalid && institutionType.touched" class="text-red-600 text-xs mt-1">Required.</div>
+            <div *ngIf="institutionType.invalid && institutionType.touched" class="text-red-600 text-xs mt-1">Required.
+            </div>
           </td>
 
           <td class="border px-4 py-2 min-w-[180px]">
-            <select [(ngModel)]="fundingRows[i].formatOfFunding" name="formatOfFunding{{i}}"
-              [disabled]="element.edit" required #formatOfFunding="ngModel"
+            <select [(ngModel)]="fundingRows[i].formatOfFunding" name="formatOfFunding{{i}}" [disabled]="element.edit"
+              required #formatOfFunding="ngModel"
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="" disabled>Select</option>
               <option *ngFor="let format of fundingFormats" [value]="format">{{ format }}</option>
             </select>
-            <div *ngIf="formatOfFunding.invalid && formatOfFunding.touched" class="text-red-600 text-xs mt-1">Required.</div>
+            <div *ngIf="formatOfFunding.invalid && formatOfFunding.touched" class="text-red-600 text-xs mt-1">Required.
+            </div>
           </td>
 
           <td class="border px-4 py-2 min-w-[160px]">
             <input type="number" [(ngModel)]="fundingRows[i].sanctionAmount" name="sanctionAmount{{i}}"
               [disabled]="element.edit" required #sanctionAmount="ngModel" placeholder="Sanction Amount"
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <div *ngIf="sanctionAmount.invalid && sanctionAmount.touched" class="text-red-600 text-xs mt-1">Required.</div>
+            <div *ngIf="sanctionAmount.invalid && sanctionAmount.touched" class="text-red-600 text-xs mt-1">Required.
+            </div>
           </td>
 
           <td class="border px-4 py-2 min-w-[180px]">
             <input type="number" [(ngModel)]="fundingRows[i].disbursementAmount" name="disbursementAmount{{i}}"
               [disabled]="element.edit" required #disbursementAmount="ngModel" placeholder="Disbursement Amount"
               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <div *ngIf="disbursementAmount.invalid && disbursementAmount.touched" class="text-red-600 text-xs mt-1">Required.</div>
+            <div *ngIf="disbursementAmount.invalid && disbursementAmount.touched" class="text-red-600 text-xs mt-1">
+              Required.</div>
           </td>
-         
+
           <td class="border px-4 py-2 min-w-[100px]">
-           <button *ngIf="element.edit" mat-button color="primary" (click)="editRow(i)">Edit</button>
-          <button *ngIf="!element.edit" mat-button color="primary" [disabled]="formRef.invalid" (click)="saveRow(i)">Save</button>
+            <button *ngIf="element.edit" mat-button color="primary" (click)="editRow(i)">Edit</button>
+            <button *ngIf="!element.edit" mat-button color="primary" [disabled]="formRef.invalid"
+              (click)="saveRow(i)">Save</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
- <div class="flex justify-end gap-4 mt-4">
+  <div class="flex justify-end gap-4 mt-4">
     <button mat-raised-button color="primary" (click)="addRow()">Add New Row</button>
   </div>
 
- <div class="flex justify-end gap-4 mt-6">
+  <div class="flex justify-end gap-4 mt-6">
     <button mat-raised-button color="primary" (click)="back()">Back</button>
     <button mat-raised-button color="primary" [disabled]="formRef.invalid" (click)="onSave()">Save & Next</button>
   </div>
