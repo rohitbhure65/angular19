@@ -28,56 +28,58 @@
           <td class="border px-4 py-2">{{ i + 1 }}</td>
 
           <td class="border px-4 py-2 min-w-[200px]">
-            <input type="text" [(ngModel)]="fundingRows[i].schemeName" name="schemeName{{i}}" [disabled]="element.edit"
-              required #schemeName="ngModel" placeholder="Scheme Name"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+       <mat-form-field appearance="outline" class="w-full">
+            <input matInput [(ngModel)]="fundingRows[i].schemeName" name="schemeName{{i}}" #schemeName="ngModel"
+              placeholder="Scheme Name" [disabled]="element.edit" required />
+            <mat-error *ngIf="schemeName.invalid && schemeName.touched">This field is required.</mat-error>
+          </mat-form-field>
             <div *ngIf="schemeName.invalid && schemeName.touched" class="text-red-600 text-xs mt-1">Required.</div>
           </td>
 
           <td class="border px-4 py-2 min-w-[200px]">
-            <input type="text" [(ngModel)]="fundingRows[i].institutionName" name="institutionName{{i}}"
-              [disabled]="element.edit" required #institutionName="ngModel" placeholder="Institution Name"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <mat-form-field appearance="outline" class="w-full">
+            <input matInput [(ngModel)]="fundingRows[i].institutionName" name="institutionName{{i}}" #institutionName="ngModel"
+              placeholder="Institution Name" [disabled]="element.edit" required />
+            <mat-error *ngIf="institutionName.invalid && institutionName.touched">This field is required.</mat-error>
+          </mat-form-field>
             <div *ngIf="institutionName.invalid && institutionName.touched" class="text-red-600 text-xs mt-1">Required.
             </div>
           </td>
 
           <td class="border px-4 py-2 min-w-[180px]">
-            <select [(ngModel)]="fundingRows[i].institutionType" name="institutionType{{i}}" [disabled]="element.edit"
-              required #institutionType="ngModel"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="" disabled>Select Type</option>
-              <option *ngFor="let type of incubatorTypes" [value]="type">{{ type }}</option>
-            </select>
-            <div *ngIf="institutionType.invalid && institutionType.touched" class="text-red-600 text-xs mt-1">Required.
-            </div>
+            <mat-form-field appearance="outline" class="w-full">
+            <mat-select [(ngModel)]="fundingRows[i].institutionType" name="institutionType{{i}}" #institutionType="ngModel"
+              placeholder="Select Type" [disabled]="element.edit" required>
+              <mat-option *ngFor="let type of incubatorTypes" [value]="type">{{ type }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="institutionType.invalid && institutionType.touched">This field is required.</mat-error>
+          </mat-form-field>
           </td>
 
           <td class="border px-4 py-2 min-w-[180px]">
-            <select [(ngModel)]="fundingRows[i].formatOfFunding" name="formatOfFunding{{i}}" [disabled]="element.edit"
-              required #formatOfFunding="ngModel"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-              <option value="" disabled>Select</option>
-              <option *ngFor="let format of fundingFormats" [value]="format">{{ format }}</option>
-            </select>
-            <div *ngIf="formatOfFunding.invalid && formatOfFunding.touched" class="text-red-600 text-xs mt-1">Required.
-            </div>
+           <mat-form-field appearance="outline" class="w-full">
+            <mat-select [(ngModel)]="fundingRows[i].formatOfFunding" name="formatOfFunding{{i}}" #formatOfFunding="ngModel"
+              placeholder="Select" [disabled]="element.edit" required>
+              <mat-option *ngFor="let format of fundingFormats" [value]="format">{{ format }}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="formatOfFunding.invalid && formatOfFunding.touched">This field is required.</mat-error>
+          </mat-form-field>
           </td>
 
           <td class="border px-4 py-2 min-w-[160px]">
-            <input type="number" [(ngModel)]="fundingRows[i].sanctionAmount" name="sanctionAmount{{i}}"
-              [disabled]="element.edit" required #sanctionAmount="ngModel" placeholder="Sanction Amount"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <div *ngIf="sanctionAmount.invalid && sanctionAmount.touched" class="text-red-600 text-xs mt-1">Required.
-            </div>
+              <mat-form-field appearance="outline" class="w-full">
+            <input matInput type="number" [(ngModel)]="fundingRows[i].sanctionAmount" name="sanctionAmount{{i}}" #sanctionAmount="ngModel"
+              placeholder="Sanction Amount" [disabled]="element.edit" required />
+            <mat-error *ngIf="sanctionAmount.invalid && sanctionAmount.touched">This field is required.</mat-error>
+          </mat-form-field>
           </td>
 
           <td class="border px-4 py-2 min-w-[180px]">
-            <input type="number" [(ngModel)]="fundingRows[i].disbursementAmount" name="disbursementAmount{{i}}"
-              [disabled]="element.edit" required #disbursementAmount="ngModel" placeholder="Disbursement Amount"
-              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" />
-            <div *ngIf="disbursementAmount.invalid && disbursementAmount.touched" class="text-red-600 text-xs mt-1">
-              Required.</div>
+             <mat-form-field appearance="outline" class="w-full">
+            <input matInput type="number" [(ngModel)]="fundingRows[i].disbursementAmount" name="disbursementAmount{{i}}" #disbursementAmount="ngModel"
+              placeholder="Disbursement Amount" [disabled]="element.edit" required />
+            <mat-error *ngIf="disbursementAmount.invalid && disbursementAmount.touched">This field is required.</mat-error>
+          </mat-form-field>
           </td>
 
           <td class="border px-4 py-2 min-w-[100px]">
