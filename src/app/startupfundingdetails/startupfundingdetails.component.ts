@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSelectModule } from '@angular/material/select';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { NgIf } from '@angular/common';
+
 @Component({
   selector: 'app-startupfundingdetails',
   standalone: true,
@@ -15,12 +9,6 @@ import { NgIf } from '@angular/common';
     CommonModule,
     NgIf,
     FormsModule,
-    MatInputModule,
-    MatCheckboxModule,
-    MatSelectModule,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatTableModule,
   ],
   templateUrl: './startupfundingdetails.component.html',
   styleUrls: ['./startupfundingdetails.component.css'],
