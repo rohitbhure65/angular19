@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormControl, FormGroup, FormsModule, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
@@ -29,25 +34,13 @@ export class StartupFundingDetailsComponent {
   isFundingDetailsEnabled: boolean = false;
 
   startupFundingDetailsForm = new FormGroup({
-    schemeName: new FormControl('',[Validators.required]),
-    institutionName: new FormControl('',[Validators.required]),
-    institutionType: new FormControl('',[Validators.required]),
+    schemeName: new FormControl('', [Validators.required]),
+    institutionName: new FormControl('', [Validators.required]),
+    institutionType: new FormControl('', [Validators.required]),
     formatOfFunding: new FormControl('', [Validators.required]),
-    sanctionAmount: new FormControl('',[Validators.required]),
-    disbursementAmount: new FormControl('',[Validators.required]),
-  })
-  
-
-  displayedColumns: string[] = [
-    'sn',
-    'schemeName',
-    'institutionName',
-    'institutionType',
-    'formatOfFunding',
-    'sanctionAmount',
-    'disbursementAmount',
-    'action',
-  ];
+    sanctionAmount: new FormControl('', [Validators.required]),
+    disbursementAmount: new FormControl('', [Validators.required]),
+  });
 
   fundingRows: {
     schemeName: string;
@@ -56,7 +49,7 @@ export class StartupFundingDetailsComponent {
     formatOfFunding: string;
     sanctionAmount: number;
     disbursementAmount: number;
-    edit:boolean;
+    edit: boolean;
   }[] = [
     {
       schemeName: '',
@@ -65,7 +58,7 @@ export class StartupFundingDetailsComponent {
       formatOfFunding: '',
       sanctionAmount: 0,
       disbursementAmount: 0,
-      edit:true
+      edit: true,
     },
   ];
 
@@ -86,7 +79,7 @@ export class StartupFundingDetailsComponent {
       formatOfFunding: '',
       sanctionAmount: 0,
       disbursementAmount: 0,
-      edit:true
+      edit: true,
     });
     this.fundingRows = [...this.fundingRows];
   }
