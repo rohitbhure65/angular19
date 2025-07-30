@@ -33,7 +33,7 @@
               placeholder="Scheme Name" [disabled]="element.edit" required />
             <mat-error *ngIf="schemeName.invalid && schemeName.touched">This field is required.</mat-error>
           </mat-form-field>
-            <div *ngIf="schemeName.invalid && schemeName.touched" class="text-red-600 text-xs mt-1">Required.</div>
+          
           </td>
 
           <td class="border px-4 py-2 min-w-[200px]">
@@ -42,8 +42,6 @@
               placeholder="Institution Name" [disabled]="element.edit" required />
             <mat-error *ngIf="institutionName.invalid && institutionName.touched">This field is required.</mat-error>
           </mat-form-field>
-            <div *ngIf="institutionName.invalid && institutionName.touched" class="text-red-600 text-xs mt-1">Required.
-            </div>
           </td>
 
           <td class="border px-4 py-2 min-w-[180px]">
