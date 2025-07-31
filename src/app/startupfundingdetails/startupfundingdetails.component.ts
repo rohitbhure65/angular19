@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { NgIf } from '@angular/common';
+
+
 @Component({
   selector: 'app-startupfundingdetails',
   standalone: true,
@@ -26,6 +28,7 @@ import { NgIf } from '@angular/common';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
+
   ],
   templateUrl: './startupfundingdetails.component.html',
   styleUrls: ['./startupfundingdetails.component.css'],
