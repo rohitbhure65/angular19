@@ -4,12 +4,12 @@ import { Directive, HostListener } from '@angular/core';
   selector: '[appAlphanumeric]',
 })
 export class AlphanumericDirective {
-
-  private regex: RegExp = /[^a-zA-Z0-9]/g;
+  private regex: RegExp = /[^a-zA-Z0-9 ]/g;
 
   @HostListener('input', ['$event']) onInputChange(event: any) {
     const input = event.target;
-    const cleaned = input.value.replace(this.regex, '');
+    let cleaned = input.value.replace(this.regex, '');
+    cleaned = cleaned.replace(/^\s+/, '');
     if (input.value !== cleaned) {
       input.value = cleaned;
       input.dispatchEvent(new Event('input'));
