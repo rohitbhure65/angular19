@@ -13,6 +13,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { NgIf } from '@angular/common';
+import { AlphabetOnlyDirective } from '../directives/alphabet-only.directive';
+import { AlphanumericDirective } from '../directives/alphanumeric.directive';
 
 
 @Component({
@@ -28,7 +30,8 @@ import { NgIf } from '@angular/common';
     MatFormFieldModule,
     MatButtonModule,
     MatTableModule,
-
+    AlphabetOnlyDirective,
+    AlphanumericDirective,
   ],
   templateUrl: './startupfundingdetails.component.html',
   styleUrls: ['./startupfundingdetails.component.css'],

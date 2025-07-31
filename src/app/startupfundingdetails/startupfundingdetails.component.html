@@ -28,8 +28,8 @@
           <td class="border px-4 py-2">{{ i + 1 }}</td>
 
           <td class="border px-4 py-2 min-w-[200px]">
-       <mat-form-field appearance="outline" class="w-full">
-            <input matInput [(ngModel)]="fundingRows[i].schemeName" name="schemeName{{i}}" #schemeName="ngModel"
+          <mat-form-field appearance="outline" class="w-full">
+            <input matInput appAlphabetOnly [(ngModel)]="fundingRows[i].schemeName" name="schemeName{{i}}" #schemeName="ngModel"
               placeholder="Scheme Name" [disabled]="element.edit" required />
             <mat-error *ngIf="schemeName.invalid && schemeName.touched">This field is required.</mat-error>
           </mat-form-field>
@@ -38,7 +38,7 @@
 
           <td class="border px-4 py-2 min-w-[200px]">
               <mat-form-field appearance="outline" class="w-full">
-            <input matInput [(ngModel)]="fundingRows[i].institutionName" name="institutionName{{i}}" #institutionName="ngModel"
+            <input matInput appAlphabetOnly [(ngModel)]="fundingRows[i].institutionName" name="institutionName{{i}}" #institutionName="ngModel"
               placeholder="Institution Name" [disabled]="element.edit" required />
             <mat-error *ngIf="institutionName.invalid && institutionName.touched">This field is required.</mat-error>
           </mat-form-field>
@@ -66,7 +66,7 @@
 
           <td class="border px-4 py-2 min-w-[160px]">
               <mat-form-field appearance="outline" class="w-full">
-            <input matInput type="number" [(ngModel)]="fundingRows[i].sanctionAmount" name="sanctionAmount{{i}}" #sanctionAmount="ngModel"
+            <input matInput appAlphanumeric type="text" [(ngModel)]="fundingRows[i].sanctionAmount" name="sanctionAmount{{i}}" #sanctionAmount="ngModel"
               placeholder="Sanction Amount" [disabled]="element.edit" required />
             <mat-error *ngIf="sanctionAmount.invalid && sanctionAmount.touched">This field is required.</mat-error>
           </mat-form-field>
@@ -74,7 +74,7 @@
 
           <td class="border px-4 py-2 min-w-[180px]">
              <mat-form-field appearance="outline" class="w-full">
-            <input matInput type="number" [(ngModel)]="fundingRows[i].disbursementAmount" name="disbursementAmount{{i}}" #disbursementAmount="ngModel"
+            <input matInput appAlphanumeric type="text" [(ngModel)]="fundingRows[i].disbursementAmount" name="disbursementAmount{{i}}" #disbursementAmount="ngModel"
               placeholder="Disbursement Amount" [disabled]="element.edit" required />
             <mat-error *ngIf="disbursementAmount.invalid && disbursementAmount.touched">This field is required.</mat-error>
           </mat-form-field>

@@ -5,14 +5,14 @@ import { Directive, HostListener } from '@angular/core';
 })
 export class AlphabetOnlyDirective {
 
-  private regex: RegExp = /^[a-zA-Z]*$/;
+  private regex: RegExp = /[^a-zA-Z]/g;
 
   @HostListener('input', ['$event']) onInputChange(event: any) {
     const input = event.target;
-    const cleaned = input.value.replace(/[^a-zA-Z]/g, '');
+    const cleaned = input.value.replace(this.regex, '');
     if (input.value !== cleaned) {
       input.value = cleaned;
-      input.dispatchEvent(new Event('input')); // update ngModel or formControl
+      input.dispatchEvent(new Event('input'));
     }
   }
 }
